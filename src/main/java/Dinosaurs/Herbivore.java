@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 public class Herbivore extends Dinosaur{
 
-    public Herbivore(String name, String type, int healthPoints){
-        super(name, type, healthPoints);
+    public Herbivore(String name, DinosaurType dinoType, int healthPoints){
+        super(name, dinoType, healthPoints);
 
     }
 

@@ -8,8 +8,8 @@ public class Carnivore extends Dinosaur {
 
     private String subType;
 
-    public Carnivore(String name, String type , int healthPoints, String subType){
-        super(name, type, healthPoints);
+    public Carnivore(String name, DinosaurType dinoType, int healthPoints, String subType){
+        super(name, dinoType, healthPoints);
         this.subType = subType;
 
     }

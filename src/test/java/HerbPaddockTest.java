@@ -1,4 +1,5 @@
 import Dinosaurs.Dinosaur;
+import Dinosaurs.DinosaurType;
 import Dinosaurs.Herbivore;
 import Paddocks.HerbPaddock;
 import Paddocks.Paddock;
@@ -16,7 +17,7 @@ public class HerbPaddockTest {
     @Before
     public void before(){
         herbPaddock = new HerbPaddock("The yellow praire", 15);
-        herbivore = new Herbivore("Antony", "Herbivore", 10);
+        herbivore = new Herbivore("Antony", DinosaurType.HERBIVORE, 10);
     }
 
     @Test

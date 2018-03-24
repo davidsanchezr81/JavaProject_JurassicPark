@@ -1,6 +1,7 @@
 package Paddocks;
 
 import Dinosaurs.Dinosaur;
+import Dinosaurs.Herbivore;
 
 import java.util.ArrayList;
 
@@ -35,11 +36,15 @@ public abstract class  Paddock {
 
     public int getDinosaursCount() { return this.dinosaurs.size();}
 
-    public void transferDinosaur(){
-        for (Dinosaur dinosaur : dinosaurs){
-
+    public void transferHerbivorous(Dinosaur dinosaur){
+        for (Dinosaur dinosaur1 : dinosaurs){
+            if(dinosaur1.getType() == "Herbivore"){
+                removeDinosaur(dinosaur1);
+                return;
+            }
         }
     }
+
 
 
 

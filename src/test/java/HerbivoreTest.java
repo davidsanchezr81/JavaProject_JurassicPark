@@ -1,5 +1,6 @@
 import Dinosaurs.Carnivore;
 import Dinosaurs.Dinosaur;
+import Dinosaurs.DinosaurType;
 import Dinosaurs.Herbivore;
 import Paddocks.Food;
 import Paddocks.FoodType;
@@ -16,7 +17,7 @@ public class HerbivoreTest {
     @Before
     public void before(){
 
-        herbivore = new Herbivore("Jack", "Herbivore", 4);
+        herbivore = new Herbivore("Jack", DinosaurType.HERBIVORE, 4);
         food = new Food(FoodType.HERBS);
     }
 
@@ -37,11 +38,6 @@ public class HerbivoreTest {
         assertEquals("Herbivore", herbivore.getType());
     }
 
-    @Test
-    public void cenSetDinoType(){
-        herbivore.setType("Herbivore Type 3");
-        assertEquals("Herbivore Type 3", herbivore.getType());
-    }
 
     @Test
     public void cenGetDinoHealthPoints(){

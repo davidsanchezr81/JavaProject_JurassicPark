@@ -6,15 +6,15 @@ import java.util.ArrayList;
 
 public abstract class Dinosaur {
     private String name;
-    private String type;
+    private DinosaurType dinoType;
     private ArrayList<Food> belly;
     private int healthPoints;
 
 
 
-    public Dinosaur(String name, String type, int healthPoints) {
+    public Dinosaur(String name, DinosaurType dinoType, int healthPoints) {
         this.name = name;
-        this.type = type;
+        this.dinoType = dinoType;
         this.healthPoints = healthPoints;
         this.belly = new ArrayList<Food>();
 
@@ -24,9 +24,7 @@ public abstract class Dinosaur {
 
     public void setName(String name ){this.name = name;}
 
-    public String getType(){return this.type;}
-
-    public void setType(String type){this.type = type;}
+    public String getType(){return this.dinoType.getDinoType();}
 
     public int getHealthPoints(){ return this.healthPoints;}
 
@@ -42,7 +40,6 @@ public abstract class Dinosaur {
         if(healthPoints < 5 ){
             addFoodToDinosaurBelly(food);
             increaseHealthPoints(food);
-
         }
     }
 
