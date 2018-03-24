@@ -1,5 +1,7 @@
 import Dinosaurs.Carnivore;
 import Dinosaurs.Dinosaur;
+import Paddocks.Food;
+import Paddocks.FoodType;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,10 +12,12 @@ public class CarnivoreTest {
 
     Dinosaur dinosaur;
     Carnivore  carnivore;
+    Food food;
 
     @Before
     public void before(){
-        carnivore = new Carnivore("George", "Carnivore", 10,"T-REX");
+        carnivore = new Carnivore("George", "Carnivore", 3,"T-REX");
+        food = new Food(FoodType.MEATY);
     }
 
     @Test
@@ -41,7 +45,7 @@ public class CarnivoreTest {
 
     @Test
     public void cenGetDinoHealthPoints(){
-        assertEquals(10, carnivore.getHealthPoints());
+        assertEquals(3, carnivore.getHealthPoints());
     }
 
     @Test
@@ -59,6 +63,20 @@ public class CarnivoreTest {
     public void canSetDinoSubType(){
         carnivore.setSubType("VelociRaptor");
         assertEquals("VelociRaptor", carnivore.getSubType());
+    }
+
+
+    @Test
+    public void canFillBelly(){
+        carnivore.addFoodToDinosaurBelly(food);
+        assertEquals(1,carnivore.countFoodInDinosaursBelly());
+    }
+
+    @Test
+    public void canFeedDinosaur(){
+        carnivore.feedDinosaur(food);
+        assertEquals(1, carnivore.countFoodInDinosaursBelly());
+        assertEquals(8, carnivore.getHealthPoints());
     }
 
 

@@ -12,7 +12,7 @@ public class CarnPaddockTest {
     CarnPaddock carnPaddock;
     Dinosaur dinosaur;
     Carnivore carnivore;
-    Food food;
+
 
     @Before
     public void before(){
@@ -38,9 +38,8 @@ public class CarnPaddockTest {
     }
 
 //    @Test
-//    public void canFeedDinosaur(Food food){
-//        food = new Food("Cow",5)
-//        carnivore.feedDinosaur();
+//    public void canTransferDinosaur(){
+//
 //    }
 
 

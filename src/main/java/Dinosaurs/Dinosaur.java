@@ -16,6 +16,7 @@ public abstract class Dinosaur {
         this.name = name;
         this.type = type;
         this.healthPoints = healthPoints;
+        this.belly = new ArrayList<Food>();
 
     }
 
@@ -31,15 +32,16 @@ public abstract class Dinosaur {
 
     public void setHealthPoints(int healthPoints){this.healthPoints = healthPoints;}
 
-    public void increaseHealthPoints(int food){ this.healthPoints = healthPoints + food;}
+    public void increaseHealthPoints(Food food){ this.healthPoints = healthPoints + food.getEnergy();}
 
     public void addFoodToDinosaurBelly(Food food){ this.belly.add(food);}
 
-    public void feedDinosaur(Food food) {
-        if(healthPoints > 5 ){
-            addFoodToDinosaurBelly(food);
-            increaseHealthPoints(food.getEnergy());
+    public int countFoodInDinosaursBelly(){ return this.belly.size();}
 
+    public void feedDinosaur(Food food) {
+        if(healthPoints < 5 ){
+            addFoodToDinosaurBelly(food);
+            increaseHealthPoints(food);
 
         }
     }

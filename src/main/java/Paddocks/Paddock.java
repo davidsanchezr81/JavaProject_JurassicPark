@@ -35,6 +35,12 @@ public abstract class  Paddock {
 
     public int getDinosaursCount() { return this.dinosaurs.size();}
 
+    public void transferDinosaur(){
+        for (Dinosaur dinosaur : dinosaurs){
+
+        }
+    }
+
 
 
     }

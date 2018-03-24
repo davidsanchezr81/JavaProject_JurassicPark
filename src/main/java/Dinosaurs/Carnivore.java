@@ -1,5 +1,9 @@
 package Dinosaurs;
 
+import Paddocks.Food;
+
+import java.util.ArrayList;
+
 public class Carnivore extends Dinosaur {
 
     private String subType;

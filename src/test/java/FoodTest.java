@@ -11,13 +11,13 @@ public class FoodTest {
 
     @Before
     public void before(){
-        food = new Food("Herbivore", FoodType.HERBS);
+        food = new Food(FoodType.HERBS);
     }
 
-    @Test
-    public void canGetDiet(){
-        assertEquals("Herbivore", food.getDiet());
-    }
+//    @Test
+//    public void canGetDiet(){
+//        assertEquals("Herbivore", food.getDiet());
+//    }
 
     @Test
     public void canGetPrey(){
