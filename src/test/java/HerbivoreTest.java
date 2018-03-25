@@ -32,12 +32,10 @@ public class HerbivoreTest {
         assertEquals("Fred", herbivore.getName());
     }
 
-
     @Test
     public void cenGetDinoType(){
         assertEquals("Herbivore", herbivore.getType());
     }
-
 
     @Test
     public void cenGetDinoHealthPoints(){
@@ -49,7 +47,6 @@ public class HerbivoreTest {
         herbivore.setHealthPoints(15);
         assertEquals(15, herbivore.getHealthPoints());
     }
-
 
     @Test
     public void canFillBelly(){

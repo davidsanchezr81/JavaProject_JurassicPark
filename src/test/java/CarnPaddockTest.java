@@ -7,6 +7,9 @@ import Paddocks.Food;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 public class CarnPaddockTest {
@@ -22,12 +25,10 @@ public class CarnPaddockTest {
         carnPaddock = new CarnPaddock("The yellow praire", 15);
         carnivore = new Carnivore("Antony", DinosaurType.CARNIVORE, 10, "T-REX");
         herbivore = new Herbivore("Antony", DinosaurType.HERBIVORE, 10);
-
     }
 
     @Test
     public void canAddDinosaur(){
-
         carnPaddock.addDinosaur(carnivore);
         assertEquals(1, carnPaddock.getDinosaursCount());
     }
@@ -38,7 +39,6 @@ public class CarnPaddockTest {
         assertEquals(1, carnPaddock.getDinosaursCount());
         carnPaddock.removeDinosaur(carnivore);
         assertEquals(0, carnPaddock.getDinosaursCount());
-
     }
 
     @Test
@@ -47,8 +47,15 @@ public class CarnPaddockTest {
         carnPaddock.addDinosaur(herbivore);
         carnPaddock.transferHerbivorous(herbivore);
         assertEquals(1,carnPaddock.getDinosaursCount());
+    }
 
-
+    @Test
+    public void canGetDinosaursInPaddock(){
+        carnPaddock.addDinosaur(carnivore);
+        carnPaddock.addDinosaur(carnivore);
+        carnPaddock.addDinosaur(carnivore);
+        ArrayList<Dinosaur> availableDinosaurs = carnPaddock.getDinosaursInPaddock();
+        assertEquals(3, availableDinosaurs.size());
     }
 
 

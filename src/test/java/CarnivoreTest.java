@@ -13,12 +13,16 @@ public class CarnivoreTest {
 
     Dinosaur dinosaur;
     Carnivore  carnivore;
+    Carnivore carnivore1;
     Food food;
+    Food food1;
 
     @Before
     public void before(){
         carnivore = new Carnivore("George", DinosaurType.CARNIVORE, 3,"T-REX");
+        carnivore1 = new Carnivore("Greg", DinosaurType.CARNIVORE, 10,"T-REX");
         food = new Food(FoodType.MEATY);
+        food1 = new Food(FoodType.MEATY);
     }
 
     @Test
@@ -32,12 +36,10 @@ public class CarnivoreTest {
         assertEquals("Peter", carnivore.getName());
     }
 
-
     @Test
     public void cenGetDinoType(){
         assertEquals("Carnivore", carnivore.getType());
     }
-
 
     @Test
     public void cenGetDinoHealthPoints(){
@@ -61,7 +63,6 @@ public class CarnivoreTest {
         assertEquals("VelociRaptor", carnivore.getSubType());
     }
 
-
     @Test
     public void canFillBelly(){
         carnivore.addFoodToDinosaurBelly(food);
@@ -75,9 +76,11 @@ public class CarnivoreTest {
         assertEquals(8, carnivore.getHealthPoints());
     }
 
-
-
-
-
+    @Test
+    public void cannotFeedDinosaur(){
+        carnivore1.feedDinosaur(food1);
+        assertEquals(0, carnivore1.countFoodInDinosaursBelly());
+        assertEquals(10, carnivore1.getHealthPoints());
+    }
 
 }

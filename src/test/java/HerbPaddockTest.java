@@ -32,7 +32,6 @@ public class HerbPaddockTest {
         assertEquals(1, herbPaddock.getDinosaursCount());
         herbPaddock.removeDinosaur(herbivore);
         assertEquals(0, herbPaddock.getDinosaursCount());
-
     }
 
 }
