@@ -2,7 +2,7 @@ package Paddocks;
 
 public enum FoodType {
 
-        MEATY("Meaty",5),
+        MEATY("Meaty", 5),
         HERBS("Herbs", 2),
         FISHY("Fishy", 3);
 

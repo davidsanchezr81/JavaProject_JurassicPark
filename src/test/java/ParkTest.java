@@ -32,7 +32,7 @@ public class ParkTest {
         visitor1 = new Visitor("Michael Jackson",55);
         visitor2 = new Visitor("Miguel Moli",60);
         visitor3 = new Visitor("Chayanne",50);
-        carnPaddock1 = new CarnPaddock("The Holy Meat", 5);
+        carnPaddock1 = new CarnPaddock("The Holy Meat", 2);
         herbPaddock1 = new HerbPaddock(" The mighty jungle", 4);
         herbPaddock2 = new HerbPaddock(" Herbivore ", 4);
         herbivore1 = new Herbivore("Frank", DinosaurType.HERBIVORE,10);
@@ -85,6 +85,19 @@ public class ParkTest {
         park.removePaddock(herbPaddock1);
         assertEquals(1, park.countPaddocks());
     }
+
+//    @Test
+//    public void rampageSituation(){
+//        park.addPaddock(herbPaddock1);
+//        park.addPaddock(carnPaddock1);
+//        carnPaddock1.addDinosaurNoMatterWhat(carnivore1);
+//        carnPaddock1.addDinosaurNoMatterWhat(carnivore1);
+//        carnPaddock1.addDinosaurNoMatterWhat(carnivore1);
+//        park.checkInVisitor(visitor2);
+//        park.checkInVisitorRampage(visitor2);
+//        assertEquals(0,park.countVisitors());
+//        assertEquals("Rampage - Run",carnPaddock1.rampageNotification());
+//    }
 
 
 }

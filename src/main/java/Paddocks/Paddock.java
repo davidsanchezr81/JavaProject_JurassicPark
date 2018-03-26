@@ -62,14 +62,31 @@ public abstract class  Paddock {
         return this.dinosaurs.size() == this.capacity;
     }
 
-////    public void transferHerbivorous(Dinosaur dinosaur) {
-////        for (Dinosaur dinosaur1 : dinosaurs) {
-////            if (dinosaur1.getType() == "Herbivore") {
-////                removeDinosaur(dinosaur1);
-////                return;
-////            }
-////
-////        }
+    
+    public void nonMatchingDinosaur() {
+        ArrayList<Dinosaur> matchingDinosaur = new ArrayList<Dinosaur>();
+
+        for (Dinosaur dinosaur1 : dinosaurs) {
+            if (dinosaur1.getType() != getPaddockName()) {
+                matchingDinosaur.add(dinosaur1);
+
+            }
+        }
+
+        for (Dinosaur dinosaur1 : matchingDinosaur){
+            removeDinosaur(dinosaur1);
+        }
+    }
+
+//    public ArrayList<Dinosaur> getMatchingDinosaur() {
+//        ArrayList<Dinosaur> matchingDinosaur = new ArrayList<Dinosaur>();
+//        for (Dinosaur dinosaur1 : dinosaurs) {
+//            if (dinosaur1.getType() == getPaddockName()) {
+//                matchingDinosaur.add(dinosaur1);
+//
+//            }
+//        }
+//        return matchingDinosaur;
 //    }
 
 

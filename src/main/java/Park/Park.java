@@ -13,13 +13,13 @@ public class Park {
     private String name;
     private ArrayList<Visitor> visitors;
     private ArrayList<Paddock> paddocks;
-//    private ArrayList<Dinosaur> dinosaurs;
+
 
     public Park(String name){
         this.name = name;
         this.visitors = new ArrayList<Visitor>();
         this.paddocks = new ArrayList<Paddock>();
-//        this.dinosaurs = new ArrayList<Dinosaur>();
+
 
 
     }
@@ -36,19 +36,23 @@ public class Park {
 
     public void checkInVisitor(Visitor visitor){ this.visitors.add(visitor); }
 
-//    public void checkInVisitor(Visitor visitor){
-//        if(Paddock.rampage()){
-//
-//
-//
-//        }
-//    }
+    public void checkInVisitorRampage(Visitor visitor){
+        for(Paddock paddock : paddocks){
+            if(!paddock.rampage()) {
+                checkInVisitor(visitor);
+            }
+            else{checkOutVisitor(visitor);}
+
+        }
+
+    }
 
     public void checkOutVisitor(Visitor visitor){ this.visitors.remove(visitor);}
 
     public void addPaddock(Paddock paddock){ this.paddocks.add(paddock);}
 
     public void removePaddock(Paddock paddock){ this.paddocks.remove(paddock);}
+
 
 
     }
