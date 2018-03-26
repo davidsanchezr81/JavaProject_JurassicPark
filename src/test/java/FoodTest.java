@@ -14,11 +14,6 @@ public class FoodTest {
         food = new Food(FoodType.HERBS);
     }
 
-//    @Test
-//    public void canGetDiet(){
-//        assertEquals("Herbivore", food.getDiet());
-//    }
-
     @Test
     public void canGetPrey(){
         assertEquals("Herbs",food.getPrey());

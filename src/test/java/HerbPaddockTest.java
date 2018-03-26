@@ -6,6 +6,8 @@ import Paddocks.Paddock;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
 
 public class HerbPaddockTest {
@@ -16,8 +18,19 @@ public class HerbPaddockTest {
 
     @Before
     public void before(){
-        herbPaddock = new HerbPaddock("The yellow praire", 15);
+        herbPaddock = new HerbPaddock("The red praire", 5);
         herbivore = new Herbivore("Antony", DinosaurType.HERBIVORE, 10);
+    }
+
+    @Test
+    public void canGetPaddockName(){
+        assertEquals("The red praire", herbPaddock.getPaddockName());
+    }
+
+    @Test
+    public void canSetPaddockName(){
+        herbPaddock.setPaddockName("The Lost Dinosaurs");
+        assertEquals("The Lost Dinosaurs", herbPaddock.getPaddockName());
     }
 
     @Test
@@ -32,6 +45,29 @@ public class HerbPaddockTest {
         assertEquals(1, herbPaddock.getDinosaursCount());
         herbPaddock.removeDinosaur(herbivore);
         assertEquals(0, herbPaddock.getDinosaursCount());
+    }
+
+    @Test
+    public void canGetDinosaursInPaddock(){
+        herbPaddock.addDinosaur(herbivore);
+        herbPaddock.addDinosaur(herbivore);
+        ArrayList<Dinosaur> availableDinosaurs = herbPaddock.getDinosaursInPaddock();
+        assertEquals(2, availableDinosaurs.size());
+    }
+
+    @Test
+    public void canHappenRampage(){
+        herbPaddock.addDinosaur(herbivore);
+        herbPaddock.addDinosaur(herbivore);
+        herbPaddock.addDinosaur(herbivore);
+        herbPaddock.addDinosaur(herbivore);
+        herbPaddock.addDinosaur(herbivore);
+        herbPaddock.addDinosaur(herbivore);
+        herbPaddock.addDinosaurNoMatterWhat(herbivore);
+        herbPaddock.addDinosaurNoMatterWhat(herbivore);
+        herbPaddock.addDinosaurNoMatterWhat(herbivore);
+        assertEquals(8, herbPaddock.getDinosaursCount());
+        assertEquals("Rampage - Run", herbPaddock.rampageNotification());
     }
 
 }
