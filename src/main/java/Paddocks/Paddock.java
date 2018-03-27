@@ -1,6 +1,7 @@
 package Paddocks;
 
 import Dinosaurs.Dinosaur;
+import Dinosaurs.DinosaurType;
 import Dinosaurs.Herbivore;
 
 import java.util.ArrayList;
@@ -11,10 +12,12 @@ public abstract class  Paddock {
     String name;
     int capacity;
     Food food;
+    DinosaurType dinoType;
 
 
-    public Paddock(String name, int capacity) {
+    public Paddock(String name, int capacity,DinosaurType dinoType) {
         this.name = name;
+        this.dinoType = dinoType;
         this.capacity = capacity;
         this.dinosaurs = new ArrayList<Dinosaur>();
 
@@ -34,6 +37,10 @@ public abstract class  Paddock {
 
     public void setPaddockCapacity(int capacity) {
         this.capacity = capacity;
+    }
+
+    public String getDinoType(){
+        return this.dinoType.toString();
     }
 
     public void addDinosaur(Dinosaur dinosaur) {
@@ -67,13 +74,13 @@ public abstract class  Paddock {
     public ArrayList<Dinosaur> removeNonMatchingDinosaur() {
         ArrayList<Dinosaur> nonMatchingDinosaur = new ArrayList<Dinosaur>();
 
-        for (Dinosaur dinosaur1 : dinosaurs) {
-            if (!dinosaur1.getType().equals(getPaddockName())) {
-                nonMatchingDinosaur.add(dinosaur1);
+        for (Dinosaur dinosaur : dinosaurs) {
+            if (!dinosaur.getType().toUpperCase().equals(getDinoType())) {
+                nonMatchingDinosaur.add(dinosaur);
             }
         }
-        for (Dinosaur dinosaur1 : nonMatchingDinosaur){
-            removeDinosaur(dinosaur1);
+        for (Dinosaur dinosaur : nonMatchingDinosaur){
+            removeDinosaur(dinosaur);
         }
         return nonMatchingDinosaur;
     }
@@ -81,7 +88,7 @@ public abstract class  Paddock {
 
     public void addNonMatchingDinosaur(ArrayList<Dinosaur> nonMatchingDinosaur){
         for (Dinosaur dinosaur : nonMatchingDinosaur){
-            if (dinosaur.getType().equals(getPaddockName()))
+            if (dinosaur.getType().toUpperCase().equals(getDinoType()))
             addDinosaur(dinosaur);
         }
     }

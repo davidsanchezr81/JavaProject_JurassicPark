@@ -25,22 +25,28 @@ public class CarnPaddockTest {
 
     @Before
     public void before(){
-        carnPaddock = new CarnPaddock("Carnivore", 5);
-        carnPaddock1 = new CarnPaddock("Carnivore", 5);
-        herbPaddock = new HerbPaddock("Herbivore", 5);
+        carnPaddock = new CarnPaddock("The Meat Raid", 5,DinosaurType.CARNIVORE);
+        carnPaddock1 = new CarnPaddock("The Meat Rush", 5,DinosaurType.CARNIVORE);
+        herbPaddock = new HerbPaddock("Herbivore", 5, DinosaurType.HERBIVORE);
         carnivore = new Carnivore("Antony", DinosaurType.CARNIVORE, 10, "T-REX");
         herbivore = new Herbivore("Raul", DinosaurType.HERBIVORE, 10);
     }
 
     @Test
     public void canGetPaddockName(){
-        assertEquals("Carnivore", carnPaddock.getPaddockName());
+        assertEquals("The Meat Raid", carnPaddock.getPaddockName());
     }
 
     @Test
     public void canSetPaddockName(){
         carnPaddock.setPaddockName("The last Monsters");
         assertEquals("The last Monsters", carnPaddock.getPaddockName());
+    }
+
+    @Test
+    public void canGetDinosaurType(){
+        assertEquals("CARNIVORE", carnPaddock.getDinoType());
+
     }
 
     @Test
@@ -117,6 +123,7 @@ public class CarnPaddockTest {
         carnPaddock.addDinosaur(herbivore);
         carnPaddock.addDinosaurNoMatterWhat(herbivore);
         carnPaddock.addDinosaurNoMatterWhat(herbivore);
+        assertEquals(6, carnPaddock.getDinosaursCount());
         ArrayList<Dinosaur> nonMatchingDinosaurs = carnPaddock.removeNonMatchingDinosaur();
         assertEquals(5, nonMatchingDinosaurs.size());
     }
@@ -131,10 +138,24 @@ public class CarnPaddockTest {
         carnPaddock.addDinosaurNoMatterWhat(herbivore);
         ArrayList<Dinosaur> nonMatchingDinosaurs = carnPaddock.removeNonMatchingDinosaur();
         assertEquals(5, nonMatchingDinosaurs.size());
-        carnPaddock1.addNonMatchingDinosaur(nonMatchingDinosaurs);
-        assertEquals(0, carnPaddock1.getDinosaursCount());
+        assertEquals(0, herbPaddock.getDinosaursCount());
         herbPaddock.addNonMatchingDinosaur(nonMatchingDinosaurs);
         assertEquals(5, herbPaddock.getDinosaursCount());
+    }
+
+    @Test
+    public void cannotAddNonMatchingDinosaur(){
+        carnPaddock.addDinosaur(carnivore);
+        carnPaddock.addDinosaur(herbivore);
+        carnPaddock.addDinosaur(herbivore);
+        carnPaddock.addDinosaur(herbivore);
+        carnPaddock.addDinosaurNoMatterWhat(herbivore);
+        carnPaddock.addDinosaurNoMatterWhat(herbivore);
+        ArrayList<Dinosaur> nonMatchingDinosaurs = carnPaddock.removeNonMatchingDinosaur();
+        assertEquals(5, nonMatchingDinosaurs.size());
+        assertEquals(0,carnPaddock1.getDinosaursCount());
+        carnPaddock1.addNonMatchingDinosaur(nonMatchingDinosaurs);
+        assertEquals(0, carnPaddock1.getDinosaursCount());
     }
 
 

@@ -9,6 +9,7 @@ import Park.Visitor;
 import Park.Park;
 import org.junit.Before;
 import org.junit.Test;
+import sun.jvm.hotspot.debugger.win32.coff.DebugVC50TypeLeafIndices;
 
 import java.util.ArrayList;
 
@@ -28,6 +29,7 @@ public class ParkTest {
     Herbivore herbivore1;
     Carnivore carnivore1;
 
+
     @Before
     public void before(){
         park = new Park("Jurassic Park");
@@ -35,15 +37,15 @@ public class ParkTest {
         visitor2 = new Visitor("Miguel Moli",60);
         visitor3 = new Visitor("Chayanne",50);
         visitor4 = new Visitor("Mark", 18);
-        carnPaddock1 = new CarnPaddock("Carnivore", 4);
-        herbPaddock1 = new HerbPaddock("Herbivore", 4);
-        herbPaddock2 = new HerbPaddock(" Herbivore ", 4);
+        carnPaddock1 = new CarnPaddock("Carnivore", 4,DinosaurType.CARNIVORE);
+        herbPaddock1 = new HerbPaddock("Herbivore", 4, DinosaurType.HERBIVORE);
+        herbPaddock2 = new HerbPaddock(" Herbivore ", 4,DinosaurType.HERBIVORE);
         herbivore1 = new Herbivore("Frank", DinosaurType.HERBIVORE,10);
         carnivore1 = new Carnivore("Renato",DinosaurType.CARNIVORE,20, "Velociraptor");
     }
 
     @Test
-    public void canGetPArkName(){
+    public void canGetParkName(){
         assertEquals("Jurassic Park", park.getName());
     }
 
