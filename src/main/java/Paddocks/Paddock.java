@@ -77,10 +77,14 @@ public abstract class  Paddock {
         return nonMatchingDinosaur;
     }
 
-//
-//    public void addnonmatching(array)
-//        for item in array
-//    addDinosaur()
+
+    public void addNonmMatchingDinosaur(ArrayList<Dinosaur> nonMatchingDinosaur){
+        for (Dinosaur dinosaur : nonMatchingDinosaur){
+            if (dinosaur.getType().equals(getPaddockName()))
+            addDinosaur(dinosaur);
+        }
+    }
+
 
 
 

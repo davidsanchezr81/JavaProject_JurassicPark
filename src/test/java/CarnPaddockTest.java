@@ -4,6 +4,7 @@ import Dinosaurs.DinosaurType;
 import Dinosaurs.Herbivore;
 import Paddocks.CarnPaddock;
 import Paddocks.Food;
+import Paddocks.HerbPaddock;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,6 +17,7 @@ public class CarnPaddockTest {
 
     CarnPaddock carnPaddock;
     CarnPaddock carnPaddock1;
+    HerbPaddock herbPaddock;
     Dinosaur dinosaur;
     Carnivore carnivore;
     Herbivore herbivore;
@@ -25,6 +27,7 @@ public class CarnPaddockTest {
     public void before(){
         carnPaddock = new CarnPaddock("Carnivore", 4);
         carnPaddock1 = new CarnPaddock("The yellow praire", 14);
+        herbPaddock = new HerbPaddock("Herbivore", 4);
         carnivore = new Carnivore("Antony", DinosaurType.CARNIVORE, 10, "T-REX");
         herbivore = new Herbivore("Antony", DinosaurType.HERBIVORE, 10);
     }
@@ -91,7 +94,6 @@ public class CarnPaddockTest {
         assertEquals(3, availableDinosaurs.size());
     }
 
-
     @Test
     public void canHappenRampage(){
         carnPaddock.addDinosaur(carnivore);
@@ -108,17 +110,19 @@ public class CarnPaddockTest {
     }
 
     @Test
-    public void canGetNonMatchingDinosaur(){
+    public void canTransferMatchingDinosaur(){
         carnPaddock.addDinosaur(carnivore);
         carnPaddock.addDinosaur(herbivore);
         carnPaddock.addDinosaur(herbivore);
         carnPaddock.addDinosaur(herbivore);
+        carnPaddock.addDinosaurNoMatterWhat(herbivore);
+        carnPaddock.addDinosaurNoMatterWhat(herbivore);
         ArrayList<Dinosaur> nonMatchingDinosaurs = carnPaddock.removeNonMatchingDinosaur();
-        assertEquals(3, nonMatchingDinosaurs.size());
-
-//        herbPaddokc.addnonmatching(array)
-//        assertequals(4, 2paddock.getDinosaursCount());
-
+        assertEquals(5, nonMatchingDinosaurs.size());
+        carnPaddock1.addNonmMatchingDinosaur(nonMatchingDinosaurs);
+        assertEquals(0, carnPaddock1.getDinosaursCount());
+        herbPaddock.addNonmMatchingDinosaur(nonMatchingDinosaurs);
+        assertEquals(4, herbPaddock.getDinosaursCount());
     }
 
 
