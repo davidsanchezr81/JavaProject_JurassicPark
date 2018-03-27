@@ -29,7 +29,7 @@ public class CarnPaddockTest {
         carnPaddock1 = new CarnPaddock("The yellow praire", 14);
         herbPaddock = new HerbPaddock("Herbivore", 4);
         carnivore = new Carnivore("Antony", DinosaurType.CARNIVORE, 10, "T-REX");
-        herbivore = new Herbivore("Antony", DinosaurType.HERBIVORE, 10);
+        herbivore = new Herbivore("Raul", DinosaurType.HERBIVORE, 10);
     }
 
     @Test
@@ -106,11 +106,11 @@ public class CarnPaddockTest {
         carnPaddock.addDinosaurNoMatterWhat(carnivore);
         carnPaddock.addDinosaurNoMatterWhat(carnivore);
         assertEquals(7, carnPaddock.getDinosaursCount());
-        assertEquals("Rampage - Run", carnPaddock.rampageNotification());
+        assertEquals("Rampage Situation! Run for your Life", carnPaddock.rampageNotification());
     }
 
     @Test
-    public void canTransferMatchingDinosaur(){
+    public void canRemoveMatchingDinosaur(){
         carnPaddock.addDinosaur(carnivore);
         carnPaddock.addDinosaur(herbivore);
         carnPaddock.addDinosaur(herbivore);
@@ -119,9 +119,21 @@ public class CarnPaddockTest {
         carnPaddock.addDinosaurNoMatterWhat(herbivore);
         ArrayList<Dinosaur> nonMatchingDinosaurs = carnPaddock.removeNonMatchingDinosaur();
         assertEquals(5, nonMatchingDinosaurs.size());
-        carnPaddock1.addNonmMatchingDinosaur(nonMatchingDinosaurs);
+    }
+
+    @Test
+    public void canAddNonMatchingDinosaur(){
+        carnPaddock.addDinosaur(carnivore);
+        carnPaddock.addDinosaur(herbivore);
+        carnPaddock.addDinosaur(herbivore);
+        carnPaddock.addDinosaur(herbivore);
+        carnPaddock.addDinosaurNoMatterWhat(herbivore);
+        carnPaddock.addDinosaurNoMatterWhat(herbivore);
+        ArrayList<Dinosaur> nonMatchingDinosaurs = carnPaddock.removeNonMatchingDinosaur();
+        assertEquals(5, nonMatchingDinosaurs.size());
+        carnPaddock1.addNonMatchingDinosaur(nonMatchingDinosaurs);
         assertEquals(0, carnPaddock1.getDinosaursCount());
-        herbPaddock.addNonmMatchingDinosaur(nonMatchingDinosaurs);
+        herbPaddock.addNonMatchingDinosaur(nonMatchingDinosaurs);
         assertEquals(4, herbPaddock.getDinosaursCount());
     }
 

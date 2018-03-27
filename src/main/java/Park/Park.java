@@ -35,27 +35,43 @@ public class Park {
 
     public int countPaddocks(){ return this.paddocks.size(); }
 
-    public void checkInVisitor(Visitor visitor){ this.visitors.add(visitor); }
-
-    public void checkInVisitorRampage(Visitor visitor){
-        for(Paddock paddock : paddocks){
-            if(!paddock.rampage()) {
-                checkInVisitor(visitor);
+    public void checkInVisitor(Visitor visitor) {
+        for (Paddock paddock : paddocks) {
+            if (!paddock.rampage()) {
+                this.visitors.add(visitor);
             }
-            else{checkOutVisitor(visitor);}
         }
     }
 
-    public void checkOutVisitor(Visitor visitor){ this.visitors.remove(visitor);}
+    public void checkOutVisitor(Visitor visitor) {
+        for (Paddock paddock : paddocks) {
+            if (!paddock.rampage()) {
+                this.visitors.remove(visitor);
+            }
+        }
+    }
 
     public void addPaddock(Paddock paddock){ this.paddocks.add(paddock);}
 
     public void removePaddock(Paddock paddock){ this.paddocks.remove(paddock);}
 
+//    public void transferDinosaur(){
+//        ArrayList<Dinosaur> nonMatchingDinosaur = new ArrayList<Dinosaur>();
+//        carnPaddock.removeNonMatchingDinosaur();
+//        herbPaddock.addNonMatchingDinosaur(nonMatchingDinosaur);
+//    }
 
 
-    }
+
+//    public void checkInVisitorRampage(Visitor visitor){
+//        for(Paddock paddock : paddocks){
+//            if(!paddock.rampage()) {
+//                checkInVisitor(visitor);
+//            }
+////            else{checkOutVisitor(visitor);}
+//        }
+//    }
 
 
 
-
+}

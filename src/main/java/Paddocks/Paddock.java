@@ -64,8 +64,7 @@ public abstract class  Paddock {
 
     public ArrayList<Dinosaur> removeNonMatchingDinosaur() {
         ArrayList<Dinosaur> nonMatchingDinosaur = new ArrayList<Dinosaur>();
-        // "d"=="d"
-        // "d".equals("d")
+
         for (Dinosaur dinosaur1 : dinosaurs) {
             if (!dinosaur1.getType().equals(getPaddockName())) {
                 nonMatchingDinosaur.add(dinosaur1);
@@ -78,33 +77,23 @@ public abstract class  Paddock {
     }
 
 
-    public void addNonmMatchingDinosaur(ArrayList<Dinosaur> nonMatchingDinosaur){
+    public void addNonMatchingDinosaur(ArrayList<Dinosaur> nonMatchingDinosaur){
         for (Dinosaur dinosaur : nonMatchingDinosaur){
             if (dinosaur.getType().equals(getPaddockName()))
             addDinosaur(dinosaur);
         }
     }
 
-
-
-
-
-
-
-
-
-
-
     // RAMPAGE
-
-
+    
     public boolean rampage() {  return this.dinosaurs.size() > this.capacity; }
 
     public String rampageNotification(){
         if(rampage()){
-            return "Rampage - Run";}
+            return "Rampage Situation! Run for your Life";}
         return "All good, no danger so far";
     }
+
 
 
 

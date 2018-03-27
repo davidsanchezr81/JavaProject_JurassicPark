@@ -1,4 +1,5 @@
 import Dinosaurs.Carnivore;
+import Dinosaurs.Dinosaur;
 import Dinosaurs.DinosaurType;
 import Dinosaurs.Herbivore;
 import Paddocks.CarnPaddock;
@@ -32,8 +33,8 @@ public class ParkTest {
         visitor1 = new Visitor("Michael Jackson",55);
         visitor2 = new Visitor("Miguel Moli",60);
         visitor3 = new Visitor("Chayanne",50);
-        carnPaddock1 = new CarnPaddock("The Holy Meat", 2);
-        herbPaddock1 = new HerbPaddock(" The mighty jungle", 4);
+        carnPaddock1 = new CarnPaddock("Carnivore", 4);
+        herbPaddock1 = new HerbPaddock("Herbivore", 4);
         herbPaddock2 = new HerbPaddock(" Herbivore ", 4);
         herbivore1 = new Herbivore("Frank", DinosaurType.HERBIVORE,10);
         carnivore1 = new Carnivore("Renato",DinosaurType.CARNIVORE,20, "Velociraptor");
@@ -46,6 +47,7 @@ public class ParkTest {
 
     @Test
     public void canCheckInVisitor(){
+        park.addPaddock(carnPaddock1);
         park.countVisitors();
         assertEquals(0, park.countVisitors());
         park.checkInVisitor(visitor1);
@@ -56,6 +58,7 @@ public class ParkTest {
 
     @Test
     public void canCheckOutVisitor(){
+        park.addPaddock(carnPaddock1);
         park.checkInVisitor(visitor1);
         park.checkInVisitor(visitor2);
         assertEquals(2, park.countVisitors());
@@ -65,6 +68,9 @@ public class ParkTest {
 
     @Test
     public void canGetVisitorsInPark(){
+        park.addPaddock(carnPaddock1);
+        park.countVisitors();
+        assertEquals(0, park.countVisitors());
         park.checkInVisitor(visitor1);
         park.checkInVisitor(visitor2);
         park.checkInVisitor(visitor3);
@@ -87,18 +93,58 @@ public class ParkTest {
     }
 
     @Test
-    public void rampageSituation(){
-        park.addPaddock(herbPaddock1);
+    public void cannotCheckInInRampageSituation(){
         park.addPaddock(carnPaddock1);
+        carnPaddock1.addDinosaur(carnivore1);
+        carnPaddock1.addDinosaur(carnivore1);
+        carnPaddock1.addDinosaur(carnivore1);
+        carnPaddock1.addDinosaur(carnivore1);
         carnPaddock1.addDinosaurNoMatterWhat(carnivore1);
-        carnPaddock1.addDinosaurNoMatterWhat(carnivore1);
-        carnPaddock1.addDinosaurNoMatterWhat(carnivore1);
+        assertEquals(5, carnPaddock1.getDinosaursCount());
         assertEquals(0,park.countVisitors());
-//        park.checkInVisitor(visitor2);
-        park.checkInVisitorRampage(visitor2);
+        park.checkInVisitor(visitor1);
         assertEquals(0,park.countVisitors());
-        assertEquals("Rampage - Run",carnPaddock1.rampageNotification());
+        assertEquals("Rampage Situation! Run for your Life",carnPaddock1.rampageNotification());
     }
 
+    @Test
+    public void cannotCheckOutInRampageSituation(){
+        park.addPaddock(carnPaddock1);
+        park.checkInVisitor(visitor1);
+        park.checkInVisitor(visitor2);
+        park.checkInVisitor(visitor3);
+        carnPaddock1.addDinosaur(carnivore1);
+        carnPaddock1.addDinosaur(carnivore1);
+        carnPaddock1.addDinosaur(carnivore1);
+        carnPaddock1.addDinosaur(carnivore1);
+        carnPaddock1.addDinosaurNoMatterWhat(carnivore1);
+        assertEquals(5, carnPaddock1.getDinosaursCount());
+        assertEquals(3,park.countVisitors());
+        park.checkOutVisitor(visitor1);
+        assertEquals(3,park.countVisitors());
+        assertEquals("Rampage Situation! Run for your Life",carnPaddock1.rampageNotification());
+    }
+
+
+
+
+
+
+
+
+//    @Test
+//    public void canTransferDinosaur(){
+//        park.addPaddock(carnPaddock1);
+//        carnPaddock1.addDinosaur(carnivore1);
+//        carnPaddock1.addDinosaur(herbivore1);
+//        carnPaddock1.addDinosaur(herbivore1);
+//        carnPaddock1.addDinosaur(herbivore1);
+//        carnPaddock1.addDinosaurNoMatterWhat(herbivore1);
+//        carnPaddock1.addDinosaurNoMatterWhat(herbivore1);
+//        park.addPaddock(herbPaddock1);
+//        park.transferDinosaur();
+//        assertEquals(5,herbPaddock1.getDinosaursCount());
+//
+//    }
 
 }

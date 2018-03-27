@@ -112,7 +112,7 @@ public class HerbPaddockTest {
         herbPaddock.addDinosaurNoMatterWhat(herbivore);
         herbPaddock.addDinosaurNoMatterWhat(herbivore);
         assertEquals(8, herbPaddock.getDinosaursCount());
-        assertEquals("Rampage - Run", herbPaddock.rampageNotification());
+        assertEquals("Rampage Situation! Run for your Life", herbPaddock.rampageNotification());
     }
 
     @Test
