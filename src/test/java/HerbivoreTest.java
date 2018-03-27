@@ -12,12 +12,14 @@ import static org.junit.Assert.assertEquals;
 public class HerbivoreTest {
     Dinosaur dinosaur;
     Herbivore herbivore;
+    Herbivore herbivore1;
     Food food;
 
     @Before
     public void before(){
 
         herbivore = new Herbivore("Jack", DinosaurType.HERBIVORE, 4);
+        herbivore1 = new Herbivore("Juliet", DinosaurType.HERBIVORE, 8);
         food = new Food(FoodType.HERBS);
     }
 
@@ -59,6 +61,13 @@ public class HerbivoreTest {
         herbivore.feedDinosaur(food);
         assertEquals(1, herbivore.countFoodInDinosaursBelly());
         assertEquals(6, herbivore.getHealthPoints());
+    }
+
+    @Test
+    public void cannotFeedDinosaur(){
+        herbivore1.feedDinosaur(food);
+        assertEquals(0, herbivore1.countFoodInDinosaursBelly());
+        assertEquals(8, herbivore1.getHealthPoints());
     }
 
 

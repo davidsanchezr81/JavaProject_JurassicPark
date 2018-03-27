@@ -44,7 +44,7 @@ public class CarnPaddockTest {
     }
 
     @Test
-    public void canGetDinosaurType(){
+    public void canGetDinoType(){
         assertEquals("CARNIVORE", carnPaddock.getDinoType());
 
     }
@@ -60,7 +60,9 @@ public class CarnPaddockTest {
     }
 
     @Test
-    public void canAddDinosaurAtCapacity(){
+    public void cannotAddDinosaurAtCapacity(){
+        carnPaddock.addDinosaur(carnivore);
+        carnPaddock.addDinosaur(carnivore);
         carnPaddock.addDinosaur(carnivore);
         carnPaddock.addDinosaur(carnivore);
         carnPaddock.addDinosaur(carnivore);
@@ -113,6 +115,19 @@ public class CarnPaddockTest {
         carnPaddock.addDinosaurNoMatterWhat(carnivore);
         assertEquals(8, carnPaddock.getDinosaursCount());
         assertEquals("Rampage Situation! Run for your Life", carnPaddock.rampageNotification());
+    }
+
+    @Test
+    public void cannotHappenRampage(){
+        carnPaddock.addDinosaur(herbivore);
+        carnPaddock.addDinosaur(herbivore);
+        carnPaddock.addDinosaur(herbivore);
+        carnPaddock.addDinosaur(herbivore);
+        carnPaddock.addDinosaur(herbivore);
+        carnPaddock.addDinosaur(herbivore);
+        carnPaddock.addDinosaur(herbivore);
+        assertEquals(5, carnPaddock.getDinosaursCount());
+        assertEquals("All good, no danger so far", herbPaddock.rampageNotification());
     }
 
     @Test

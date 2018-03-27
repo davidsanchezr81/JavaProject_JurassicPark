@@ -37,9 +37,9 @@ public class ParkTest {
         visitor2 = new Visitor("Miguel Moli",60);
         visitor3 = new Visitor("Chayanne",50);
         visitor4 = new Visitor("Mark", 18);
-        carnPaddock1 = new CarnPaddock("Carnivore", 4,DinosaurType.CARNIVORE);
-        herbPaddock1 = new HerbPaddock("Herbivore", 4, DinosaurType.HERBIVORE);
-        herbPaddock2 = new HerbPaddock(" Herbivore ", 4,DinosaurType.HERBIVORE);
+        carnPaddock1 = new CarnPaddock("Carnivore", 5,DinosaurType.CARNIVORE);
+        herbPaddock1 = new HerbPaddock("Herbivore", 5, DinosaurType.HERBIVORE);
+        herbPaddock2 = new HerbPaddock(" Herbivore ", 5,DinosaurType.HERBIVORE);
         herbivore1 = new Herbivore("Frank", DinosaurType.HERBIVORE,10);
         carnivore1 = new Carnivore("Renato",DinosaurType.CARNIVORE,20, "Velociraptor");
     }
@@ -120,12 +120,13 @@ public class ParkTest {
         carnPaddock1.addDinosaur(carnivore1);
         carnPaddock1.addDinosaur(carnivore1);
         carnPaddock1.addDinosaur(carnivore1);
+        carnPaddock1.addDinosaur(carnivore1);
         carnPaddock1.addDinosaurNoMatterWhat(carnivore1);
-        assertEquals(5, carnPaddock1.getDinosaursCount());
+        assertEquals(6, carnPaddock1.getDinosaursCount());
+        assertEquals("Rampage Situation! Run for your Life",carnPaddock1.rampageNotification());
         assertEquals(0,park.countVisitors());
         park.checkInVisitor(visitor1);
         assertEquals(0,park.countVisitors());
-        assertEquals("Rampage Situation! Run for your Life",carnPaddock1.rampageNotification());
     }
 
     @Test
@@ -138,12 +139,13 @@ public class ParkTest {
         carnPaddock1.addDinosaur(carnivore1);
         carnPaddock1.addDinosaur(carnivore1);
         carnPaddock1.addDinosaur(carnivore1);
+        carnPaddock1.addDinosaur(carnivore1);
         carnPaddock1.addDinosaurNoMatterWhat(carnivore1);
-        assertEquals(5, carnPaddock1.getDinosaursCount());
-        assertEquals(3,park.countVisitors());
-        park.checkOutVisitor(visitor1);
+        assertEquals(6, carnPaddock1.getDinosaursCount());
         assertEquals(3,park.countVisitors());
         assertEquals("Rampage Situation! Run for your Life",carnPaddock1.rampageNotification());
+        park.checkOutVisitor(visitor1);
+        assertEquals(3,park.countVisitors());
     }
 
 
