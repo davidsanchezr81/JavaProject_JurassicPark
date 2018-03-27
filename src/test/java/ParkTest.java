@@ -86,18 +86,19 @@ public class ParkTest {
         assertEquals(1, park.countPaddocks());
     }
 
-//    @Test
-//    public void rampageSituation(){
-//        park.addPaddock(herbPaddock1);
-//        park.addPaddock(carnPaddock1);
-//        carnPaddock1.addDinosaurNoMatterWhat(carnivore1);
-//        carnPaddock1.addDinosaurNoMatterWhat(carnivore1);
-//        carnPaddock1.addDinosaurNoMatterWhat(carnivore1);
+    @Test
+    public void rampageSituation(){
+        park.addPaddock(herbPaddock1);
+        park.addPaddock(carnPaddock1);
+        carnPaddock1.addDinosaurNoMatterWhat(carnivore1);
+        carnPaddock1.addDinosaurNoMatterWhat(carnivore1);
+        carnPaddock1.addDinosaurNoMatterWhat(carnivore1);
+        assertEquals(0,park.countVisitors());
 //        park.checkInVisitor(visitor2);
-//        park.checkInVisitorRampage(visitor2);
-//        assertEquals(0,park.countVisitors());
-//        assertEquals("Rampage - Run",carnPaddock1.rampageNotification());
-//    }
+        park.checkInVisitorRampage(visitor2);
+        assertEquals(0,park.countVisitors());
+        assertEquals("Rampage - Run",carnPaddock1.rampageNotification());
+    }
 
 
 }

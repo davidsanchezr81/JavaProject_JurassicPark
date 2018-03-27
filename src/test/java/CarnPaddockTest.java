@@ -23,7 +23,7 @@ public class CarnPaddockTest {
 
     @Before
     public void before(){
-        carnPaddock = new CarnPaddock("The yellow praire", 4);
+        carnPaddock = new CarnPaddock("Carnivore", 4);
         carnPaddock1 = new CarnPaddock("The yellow praire", 14);
         carnivore = new Carnivore("Antony", DinosaurType.CARNIVORE, 10, "T-REX");
         herbivore = new Herbivore("Antony", DinosaurType.HERBIVORE, 10);
@@ -31,7 +31,7 @@ public class CarnPaddockTest {
 
     @Test
     public void canGetPaddockName(){
-        assertEquals("The yellow praire", carnPaddock.getPaddockName());
+        assertEquals("Carnivore", carnPaddock.getPaddockName());
     }
 
     @Test
@@ -82,15 +82,6 @@ public class CarnPaddockTest {
         assertEquals(0, carnPaddock.getDinosaursCount());
     }
 
-//    @Test
-//    public void canTransferHerbivorous(){
-//        carnPaddock.addDinosaur(carnivore);
-//        carnPaddock.addDinosaur(herbivore);
-//        carnPaddock.transferHerbivorous(carnivore);
-////        assertEquals(" Done ",carnPaddock.transferHerbivorous(herbivore));
-//        assertEquals(1,carnPaddock.getDinosaursCount());
-//    }
-
     @Test
     public void canGetDinosaursInPaddock(){
         carnPaddock.addDinosaur(carnivore);
@@ -114,6 +105,20 @@ public class CarnPaddockTest {
         carnPaddock.addDinosaurNoMatterWhat(carnivore);
         assertEquals(7, carnPaddock.getDinosaursCount());
         assertEquals("Rampage - Run", carnPaddock.rampageNotification());
+    }
+
+    @Test
+    public void canGetNonMatchingDinosaur(){
+        carnPaddock.addDinosaur(carnivore);
+        carnPaddock.addDinosaur(herbivore);
+        carnPaddock.addDinosaur(herbivore);
+        carnPaddock.addDinosaur(herbivore);
+        ArrayList<Dinosaur> nonMatchingDinosaurs = carnPaddock.removeNonMatchingDinosaur();
+        assertEquals(3, nonMatchingDinosaurs.size());
+
+//        herbPaddokc.addnonmatching(array)
+//        assertequals(4, 2paddock.getDinosaursCount());
+
     }
 
 

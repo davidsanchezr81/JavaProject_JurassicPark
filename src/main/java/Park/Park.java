@@ -13,15 +13,16 @@ public class Park {
     private String name;
     private ArrayList<Visitor> visitors;
     private ArrayList<Paddock> paddocks;
+    private CarnPaddock carnPaddock;
+    private HerbPaddock herbPaddock;
 
 
     public Park(String name){
         this.name = name;
         this.visitors = new ArrayList<Visitor>();
         this.paddocks = new ArrayList<Paddock>();
-
-
-
+        this.herbPaddock = herbPaddock;
+        this.carnPaddock = carnPaddock;
     }
 
     public String getName(){ return this.name; }
@@ -42,9 +43,7 @@ public class Park {
                 checkInVisitor(visitor);
             }
             else{checkOutVisitor(visitor);}
-
         }
-
     }
 
     public void checkOutVisitor(Visitor visitor){ this.visitors.remove(visitor);}

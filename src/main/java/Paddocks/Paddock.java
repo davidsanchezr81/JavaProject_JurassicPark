@@ -62,32 +62,36 @@ public abstract class  Paddock {
         return this.dinosaurs.size() == this.capacity;
     }
 
-    
-    public void nonMatchingDinosaur() {
-        ArrayList<Dinosaur> matchingDinosaur = new ArrayList<Dinosaur>();
-
+    public ArrayList<Dinosaur> removeNonMatchingDinosaur() {
+        ArrayList<Dinosaur> nonMatchingDinosaur = new ArrayList<Dinosaur>();
+        // "d"=="d"
+        // "d".equals("d")
         for (Dinosaur dinosaur1 : dinosaurs) {
-            if (dinosaur1.getType() != getPaddockName()) {
-                matchingDinosaur.add(dinosaur1);
-
+            if (!dinosaur1.getType().equals(getPaddockName())) {
+                nonMatchingDinosaur.add(dinosaur1);
             }
         }
-
-        for (Dinosaur dinosaur1 : matchingDinosaur){
+        for (Dinosaur dinosaur1 : nonMatchingDinosaur){
             removeDinosaur(dinosaur1);
         }
+        return nonMatchingDinosaur;
     }
 
-//    public ArrayList<Dinosaur> getMatchingDinosaur() {
-//        ArrayList<Dinosaur> matchingDinosaur = new ArrayList<Dinosaur>();
-//        for (Dinosaur dinosaur1 : dinosaurs) {
-//            if (dinosaur1.getType() == getPaddockName()) {
-//                matchingDinosaur.add(dinosaur1);
 //
-//            }
-//        }
-//        return matchingDinosaur;
-//    }
+//    public void addnonmatching(array)
+//        for item in array
+//    addDinosaur()
+
+
+
+
+
+
+
+
+
+
+    // RAMPAGE
 
 
     public boolean rampage() {  return this.dinosaurs.size() > this.capacity; }
@@ -97,6 +101,8 @@ public abstract class  Paddock {
             return "Rampage - Run";}
         return "All good, no danger so far";
     }
+
+
 
 
 }

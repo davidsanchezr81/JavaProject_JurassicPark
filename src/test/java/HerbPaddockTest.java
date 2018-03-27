@@ -88,6 +88,19 @@ public class HerbPaddockTest {
     }
 
     @Test
+    public void cannotHappenRampage(){
+        herbPaddock.addDinosaur(herbivore);
+        herbPaddock.addDinosaur(herbivore);
+        herbPaddock.addDinosaur(herbivore);
+        herbPaddock.addDinosaur(herbivore);
+        herbPaddock.addDinosaur(herbivore);
+        herbPaddock.addDinosaur(herbivore);
+        assertEquals(5, herbPaddock.getDinosaursCount());
+        assertEquals("All good, no danger so far", herbPaddock.rampageNotification());
+    }
+
+
+    @Test
     public void canHappenRampage(){
         herbPaddock.addDinosaur(herbivore);
         herbPaddock.addDinosaur(herbivore);
@@ -109,21 +122,10 @@ public class HerbPaddockTest {
         herbPaddock1.addDinosaur(carnivore);
         herbPaddock1.addDinosaur(herbivore);
         assertEquals(4, herbPaddock1.getDinosaursCount());
-        herbPaddock1.nonMatchingDinosaur();
+        herbPaddock1.removeNonMatchingDinosaur();
         assertEquals(2, herbPaddock1.getDinosaursCount());
 
     }
 
-//    @Test
-//    public void canGetMatchingDinosaur(){
-//        herbPaddock1.addDinosaur(herbivore);
-//        herbPaddock1.addDinosaur(herbivore);
-//        herbPaddock1.addDinosaur(carnivore);
-//        herbPaddock1.addDinosaur(carnivore);
-//        assertEquals(4, herbPaddock1.getDinosaursCount());
-//        ArrayList<Dinosaur> matchingDinosaurs = herbPaddock.getMatchingDinosaur();
-//        assertEquals(2, matchingDinosaurs.size());
-//
-//    }
 
 }
