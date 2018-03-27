@@ -13,21 +13,31 @@ public class Park {
     private String name;
     private ArrayList<Visitor> visitors;
     private ArrayList<Paddock> paddocks;
-    private CarnPaddock carnPaddock;
-    private HerbPaddock herbPaddock;
+
 
 
     public Park(String name){
         this.name = name;
         this.visitors = new ArrayList<Visitor>();
         this.paddocks = new ArrayList<Paddock>();
-        this.herbPaddock = herbPaddock;
-        this.carnPaddock = carnPaddock;
+
     }
 
     public String getName(){ return this.name; }
 
     public ArrayList<Visitor> getVisitors() { return visitors; }
+
+//    public Paddock getPaddockNeedTransfer(){
+//        for(Paddock paddock : paddocks) {
+//            for (Dinosaur dinosaur : paddock.dinosaurs) {
+//                if (paddock.getPaddockName().equals(dinosaur.getName())) ;
+//                return paddock;
+//            }
+//        }
+//        return null;
+//    }
+
+
 
     public ArrayList<Paddock> getPaddocks() { return paddocks; }
 
@@ -35,13 +45,22 @@ public class Park {
 
     public int countPaddocks(){ return this.paddocks.size(); }
 
+//    public void checkInVisitor1(Visitor visitor) {
+//        for (Paddock paddock : paddocks) {
+//            if (!paddock.rampage() || visitor.getAge() >= 18) {
+//                this.visitors.add(visitor);
+//            }
+//        }
+//    }
+
     public void checkInVisitor(Visitor visitor) {
         for (Paddock paddock : paddocks) {
-            if (!paddock.rampage()) {
+            if (!paddock.rampage())  {
                 this.visitors.add(visitor);
             }
         }
     }
+
 
     public void checkOutVisitor(Visitor visitor) {
         for (Paddock paddock : paddocks) {
@@ -54,23 +73,6 @@ public class Park {
     public void addPaddock(Paddock paddock){ this.paddocks.add(paddock);}
 
     public void removePaddock(Paddock paddock){ this.paddocks.remove(paddock);}
-
-//    public void transferDinosaur(){
-//        ArrayList<Dinosaur> nonMatchingDinosaur = new ArrayList<Dinosaur>();
-//        carnPaddock.removeNonMatchingDinosaur();
-//        herbPaddock.addNonMatchingDinosaur(nonMatchingDinosaur);
-//    }
-
-
-
-//    public void checkInVisitorRampage(Visitor visitor){
-//        for(Paddock paddock : paddocks){
-//            if(!paddock.rampage()) {
-//                checkInVisitor(visitor);
-//            }
-////            else{checkOutVisitor(visitor);}
-//        }
-//    }
 
 
 

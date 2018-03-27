@@ -20,24 +20,26 @@ public abstract class Dinosaur {
 
     }
 
-    public String getName() {return this.name;}
+    public String getName() { return this.name; }
 
-    public void setName(String name ){this.name = name;}
+    public void setName(String name ){ this.name = name; }
 
-    public String getType(){return this.dinoType.getDinoType();}
+    public String getType(){ return this.dinoType.getDinoType(); }
 
     public int getHealthPoints(){ return this.healthPoints;}
 
-    public void setHealthPoints(int healthPoints){this.healthPoints = healthPoints;}
+    public void setHealthPoints(int healthPoints){ this.healthPoints = healthPoints; }
 
-    public void increaseHealthPoints(Food food){ this.healthPoints = healthPoints + food.getEnergy();}
+    public void increaseHealthPoints(Food food){ this.healthPoints = healthPoints + food.getEnergy(); }
 
-    public void addFoodToDinosaurBelly(Food food){ this.belly.add(food);}
+    public void addFoodToDinosaurBelly(Food food){ this.belly.add(food); }
 
-    public int countFoodInDinosaursBelly(){ return this.belly.size();}
+    public int countFoodInDinosaursBelly(){ return this.belly.size(); }
+
+    public boolean hungryDinosaur() {  return this.healthPoints < 5; }
 
     public void feedDinosaur(Food food) {
-        if(healthPoints < 5 ){
+        if(hungryDinosaur()){
             addFoodToDinosaurBelly(food);
             increaseHealthPoints(food);
         }

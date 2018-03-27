@@ -21,6 +21,7 @@ public class ParkTest {
     Visitor visitor1;
     Visitor visitor2;
     Visitor visitor3;
+    Visitor visitor4;
     CarnPaddock carnPaddock1;
     HerbPaddock herbPaddock1;
     HerbPaddock herbPaddock2;
@@ -33,6 +34,7 @@ public class ParkTest {
         visitor1 = new Visitor("Michael Jackson",55);
         visitor2 = new Visitor("Miguel Moli",60);
         visitor3 = new Visitor("Chayanne",50);
+        visitor4 = new Visitor("Mark", 17);
         carnPaddock1 = new CarnPaddock("Carnivore", 4);
         herbPaddock1 = new HerbPaddock("Herbivore", 4);
         herbPaddock2 = new HerbPaddock(" Herbivore ", 4);
@@ -44,6 +46,27 @@ public class ParkTest {
     public void canGetPArkName(){
         assertEquals("Jurassic Park", park.getName());
     }
+
+
+    @Test
+    public void canGetVisitorAge(){
+        assertEquals(55, visitor1.getAge());
+    }
+
+//    @Test
+//    public void cannotCheckInVisitorDueToAge(){
+//        park.addPaddock(carnPaddock1);
+//        park.countVisitors();
+//        assertEquals(0, park.countVisitors());
+//        park.checkInVisitor(visitor1);
+//        park.checkInVisitor(visitor2);
+//        park.checkInVisitor(visitor4);
+//        assertEquals(2, park.countVisitors());
+//    }
+
+
+
+
 
     @Test
     public void canCheckInVisitor(){
@@ -94,7 +117,7 @@ public class ParkTest {
 
     @Test
     public void cannotCheckInInRampageSituation(){
-        park.addPaddock(carnPaddock1);
+//        park.addPaddock(carnPaddock1);
         carnPaddock1.addDinosaur(carnivore1);
         carnPaddock1.addDinosaur(carnivore1);
         carnPaddock1.addDinosaur(carnivore1);
@@ -124,12 +147,6 @@ public class ParkTest {
         assertEquals(3,park.countVisitors());
         assertEquals("Rampage Situation! Run for your Life",carnPaddock1.rampageNotification());
     }
-
-
-
-
-
-
 
 
 //    @Test

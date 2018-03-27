@@ -110,7 +110,7 @@ public class CarnPaddockTest {
     }
 
     @Test
-    public void canRemoveMatchingDinosaur(){
+    public void canRemoveNonMatchingDinosaur(){
         carnPaddock.addDinosaur(carnivore);
         carnPaddock.addDinosaur(herbivore);
         carnPaddock.addDinosaur(herbivore);

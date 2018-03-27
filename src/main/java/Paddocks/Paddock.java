@@ -62,6 +62,8 @@ public abstract class  Paddock {
         return this.dinosaurs.size() == this.capacity;
     }
 
+    ///////////////// TRANSFER HERBIVORE ///////////////////
+
     public ArrayList<Dinosaur> removeNonMatchingDinosaur() {
         ArrayList<Dinosaur> nonMatchingDinosaur = new ArrayList<Dinosaur>();
 
@@ -84,9 +86,19 @@ public abstract class  Paddock {
         }
     }
 
-    // RAMPAGE
-    
+    //////////////////////// RAMPAGE ////////////////////////
+
     public boolean rampage() {  return this.dinosaurs.size() > this.capacity; }
+
+//    public void rampage(Dinosaur dinosaur) {
+//        for (Dinosaur dinosaur1 : dinosaurs) {
+//            if (rampage1() || dinosaur1.hungryDinosaur()){
+//            return; }
+//
+//        }
+//    }
+
+
 
     public String rampageNotification(){
         if(rampage()){
