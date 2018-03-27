@@ -1,7 +1,4 @@
-import Dinosaurs.Carnivore;
-import Dinosaurs.Dinosaur;
-import Dinosaurs.DinosaurType;
-import Dinosaurs.Herbivore;
+import Dinosaurs.*;
 import Paddocks.CarnPaddock;
 import Paddocks.HerbPaddock;
 import Paddocks.Paddock;
@@ -41,7 +38,7 @@ public class ParkTest {
         herbPaddock1 = new HerbPaddock("Herbivore", 5, DinosaurType.HERBIVORE);
         herbPaddock2 = new HerbPaddock(" Herbivore ", 5,DinosaurType.HERBIVORE);
         herbivore1 = new Herbivore("Frank", DinosaurType.HERBIVORE,10);
-        carnivore1 = new Carnivore("Renato",DinosaurType.CARNIVORE,20, "Velociraptor");
+        carnivore1 = new Carnivore("Renato",DinosaurType.CARNIVORE,20, CarnSubType.SMALL);
     }
 
     @Test
@@ -147,7 +144,6 @@ public class ParkTest {
         park.checkOutVisitor(visitor1);
         assertEquals(3,park.countVisitors());
     }
-
 
 //    @Test
 //    public void canTransferDinosaur(){

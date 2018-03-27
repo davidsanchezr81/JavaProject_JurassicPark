@@ -6,17 +6,14 @@ import java.util.ArrayList;
 
 public class Carnivore extends Dinosaur {
 
-    private String subType;
+    private CarnSubType subType;
 
-    public Carnivore(String name, DinosaurType dinoType, int healthPoints, String subType){
+    public Carnivore(String name, DinosaurType dinoType, int healthPoints, CarnSubType subType){
         super(name, dinoType, healthPoints);
         this.subType = subType;
-
     }
 
-    public String getSubType(){return this.subType;}
-
-    public void setSubType(String subType){ this.subType = subType;}
+    public String getSubType(){return this.subType.getName();}
 
 
 }

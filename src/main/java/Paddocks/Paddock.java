@@ -15,7 +15,8 @@ public abstract class  Paddock {
     DinosaurType dinoType;
 
 
-    public Paddock(String name, int capacity,DinosaurType dinoType) {
+
+    public Paddock(String name, int capacity,DinosaurType dinoType ) {
         this.name = name;
         this.dinoType = dinoType;
         this.capacity = capacity;
@@ -40,6 +41,10 @@ public abstract class  Paddock {
     }
 
     public String getDinoType(){
+        return this.dinoType.toString();
+    }
+
+    public String getDinoSubType(){
         return this.dinoType.toString();
     }
 
@@ -69,7 +74,7 @@ public abstract class  Paddock {
         return this.dinosaurs.size() == this.capacity;
     }
 
-    ///////////////// TRANSFER HERBIVORE ///////////////////
+    ///////////////////////////////// TRANSFER HERBIVORE /////////////////////////////////
 
     public ArrayList<Dinosaur> removeNonMatchingDinosaur() {
         ArrayList<Dinosaur> nonMatchingDinosaur = new ArrayList<Dinosaur>();
@@ -93,6 +98,25 @@ public abstract class  Paddock {
         }
     }
 
+    //////////////////////// NO DINOSAURS OF SAME CARNIVORE TYPE ////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+    /////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+    
     //////////////////////// RAMPAGE ////////////////////////
 
     public boolean rampage() {  return this.dinosaurs.size() > this.capacity; }

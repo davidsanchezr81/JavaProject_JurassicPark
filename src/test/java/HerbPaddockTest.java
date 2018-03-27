@@ -1,7 +1,4 @@
-import Dinosaurs.Carnivore;
-import Dinosaurs.Dinosaur;
-import Dinosaurs.DinosaurType;
-import Dinosaurs.Herbivore;
+import Dinosaurs.*;
 import Paddocks.CarnPaddock;
 import Paddocks.HerbPaddock;
 import Paddocks.Paddock;
@@ -27,7 +24,7 @@ public class HerbPaddockTest {
         herbPaddock1 = new HerbPaddock("Herbivore", 5, DinosaurType.HERBIVORE);
         carnPaddock = new CarnPaddock("Herbivore", 5, DinosaurType.CARNIVORE);
         herbivore = new Herbivore("Antony", DinosaurType.HERBIVORE, 10);
-        carnivore = new Carnivore("Antony", DinosaurType.CARNIVORE, 10, "T-REX");
+        carnivore = new Carnivore("Antony", DinosaurType.CARNIVORE, 10, CarnSubType.SMALL);
 
     }
 

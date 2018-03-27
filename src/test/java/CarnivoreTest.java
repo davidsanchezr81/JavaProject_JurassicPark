@@ -1,3 +1,4 @@
+import Dinosaurs.CarnSubType;
 import Dinosaurs.Carnivore;
 import Dinosaurs.Dinosaur;
 import Dinosaurs.DinosaurType;
@@ -19,8 +20,8 @@ public class CarnivoreTest {
 
     @Before
     public void before(){
-        carnivore = new Carnivore("George", DinosaurType.CARNIVORE, 3,"T-REX");
-        carnivore1 = new Carnivore("Greg", DinosaurType.CARNIVORE, 10,"T-REX");
+        carnivore = new Carnivore("George", DinosaurType.CARNIVORE, 3, CarnSubType.BIG);
+        carnivore1 = new Carnivore("Greg", DinosaurType.CARNIVORE, 10,CarnSubType.SMALL);
         food = new Food(FoodType.MEATY);
         food1 = new Food(FoodType.MEATY);
     }
@@ -54,13 +55,8 @@ public class CarnivoreTest {
 
     @Test
     public void canGetDinoSubType(){
-        assertEquals("T-REX", carnivore.getSubType());
-    }
-
-    @Test
-    public void canSetDinoSubType(){
-        carnivore.setSubType("VelociRaptor");
-        assertEquals("VelociRaptor", carnivore.getSubType());
+        assertEquals("Great Beasts", carnivore.getSubType().toString());
+        assertEquals("Wee Critters", carnivore1.getSubType().toString());
     }
 
     @Test
