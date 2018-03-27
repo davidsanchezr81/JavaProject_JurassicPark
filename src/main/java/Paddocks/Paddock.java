@@ -90,6 +90,13 @@ public abstract class  Paddock {
 
     public boolean rampage() {  return this.dinosaurs.size() > this.capacity; }
 
+    public String rampageNotification(){
+        if(rampage()){
+            return "Rampage Situation! Run for your Life";}
+        return "All good, no danger so far";
+    }
+
+}
 //    public void rampage(Dinosaur dinosaur) {
 //        for (Dinosaur dinosaur1 : dinosaurs) {
 //            if (rampage1() || dinosaur1.hungryDinosaur()){
@@ -100,17 +107,8 @@ public abstract class  Paddock {
 
 
 
-    public String rampageNotification(){
-        if(rampage()){
-            return "Rampage Situation! Run for your Life";}
-        return "All good, no danger so far";
-    }
 
 
-
-
-
-}
     // RAMPAGE VACIA BARRIGA DE DINOSAURIO
 
 

@@ -25,9 +25,9 @@ public class CarnPaddockTest {
 
     @Before
     public void before(){
-        carnPaddock = new CarnPaddock("Carnivore", 4);
-        carnPaddock1 = new CarnPaddock("The yellow praire", 14);
-        herbPaddock = new HerbPaddock("Herbivore", 4);
+        carnPaddock = new CarnPaddock("Carnivore", 5);
+        carnPaddock1 = new CarnPaddock("Carnivore", 5);
+        herbPaddock = new HerbPaddock("Herbivore", 5);
         carnivore = new Carnivore("Antony", DinosaurType.CARNIVORE, 10, "T-REX");
         herbivore = new Herbivore("Raul", DinosaurType.HERBIVORE, 10);
     }
@@ -54,13 +54,13 @@ public class CarnPaddockTest {
     }
 
     @Test
-    public void cannotAddDinosaurAtCapacity(){
+    public void canAddDinosaurAtCapacity(){
         carnPaddock.addDinosaur(carnivore);
         carnPaddock.addDinosaur(carnivore);
         carnPaddock.addDinosaur(carnivore);
         carnPaddock.addDinosaur(carnivore);
         carnPaddock.addDinosaur(carnivore);
-        assertEquals(4, carnPaddock.getDinosaursCount());
+        assertEquals(5, carnPaddock.getDinosaursCount());
     }
 
     @Test
@@ -74,7 +74,7 @@ public class CarnPaddockTest {
         carnPaddock.addDinosaurNoMatterWhat(carnivore);
         carnPaddock.addDinosaurNoMatterWhat(carnivore);
         carnPaddock.addDinosaurNoMatterWhat(carnivore);
-        assertEquals(7, carnPaddock.getDinosaursCount());
+        assertEquals(8, carnPaddock.getDinosaursCount());
     }
 
     @Test
@@ -105,7 +105,7 @@ public class CarnPaddockTest {
         carnPaddock.addDinosaurNoMatterWhat(carnivore);
         carnPaddock.addDinosaurNoMatterWhat(carnivore);
         carnPaddock.addDinosaurNoMatterWhat(carnivore);
-        assertEquals(7, carnPaddock.getDinosaursCount());
+        assertEquals(8, carnPaddock.getDinosaursCount());
         assertEquals("Rampage Situation! Run for your Life", carnPaddock.rampageNotification());
     }
 
@@ -134,10 +134,8 @@ public class CarnPaddockTest {
         carnPaddock1.addNonMatchingDinosaur(nonMatchingDinosaurs);
         assertEquals(0, carnPaddock1.getDinosaursCount());
         herbPaddock.addNonMatchingDinosaur(nonMatchingDinosaurs);
-        assertEquals(4, herbPaddock.getDinosaursCount());
+        assertEquals(5, herbPaddock.getDinosaursCount());
     }
 
-
-// Colocar condicional para llenar el paddock en base a la cantidad de animales
 
 }

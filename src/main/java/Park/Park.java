@@ -15,17 +15,64 @@ public class Park {
     private ArrayList<Paddock> paddocks;
 
 
-
-    public Park(String name){
+    public Park(String name) {
         this.name = name;
         this.visitors = new ArrayList<Visitor>();
         this.paddocks = new ArrayList<Paddock>();
 
     }
 
-    public String getName(){ return this.name; }
+    public String getName() {
+        return this.name;
+    }
 
-    public ArrayList<Visitor> getVisitors() { return visitors; }
+    public ArrayList<Visitor> getVisitors() {
+        return visitors;
+    }
+
+    public ArrayList<Paddock> getPaddocks() {
+        return paddocks;
+    }
+
+    public int countVisitors() {
+        return this.visitors.size();
+    }
+
+    public int countPaddocks() {
+        return this.paddocks.size();
+    }
+
+    public void checkInVisitor(Visitor visitor) {
+        for (Paddock paddock : paddocks) {
+            if ((!paddock.rampage()) && visitor.getAge() >= 18) {
+                this.visitors.add(visitor);
+                return;
+            }
+        }
+    }
+
+    public void checkOutVisitor(Visitor visitor) {
+        for (Paddock paddock : paddocks) {
+            if (!paddock.rampage()) {
+                this.visitors.remove(visitor);
+            }
+        }
+    }
+
+    public void addPaddock(Paddock paddock) {
+        this.paddocks.add(paddock);
+    }
+
+    public void removePaddock(Paddock paddock) {
+        this.paddocks.remove(paddock);
+    }
+
+}
+
+///////////////////// PRUEBA //////////////////////!paddock.rampage() ||
+
+
+
 
 //    public Paddock getPaddockNeedTransfer(){
 //        for(Paddock paddock : paddocks) {
@@ -36,44 +83,3 @@ public class Park {
 //        }
 //        return null;
 //    }
-
-
-
-    public ArrayList<Paddock> getPaddocks() { return paddocks; }
-
-    public int countVisitors(){ return this.visitors.size(); }
-
-    public int countPaddocks(){ return this.paddocks.size(); }
-
-//    public void checkInVisitor1(Visitor visitor) {
-//        for (Paddock paddock : paddocks) {
-//            if (!paddock.rampage() || visitor.getAge() >= 18) {
-//                this.visitors.add(visitor);
-//            }
-//        }
-//    }
-
-    public void checkInVisitor(Visitor visitor) {
-        for (Paddock paddock : paddocks) {
-            if (!paddock.rampage())  {
-                this.visitors.add(visitor);
-            }
-        }
-    }
-
-
-    public void checkOutVisitor(Visitor visitor) {
-        for (Paddock paddock : paddocks) {
-            if (!paddock.rampage()) {
-                this.visitors.remove(visitor);
-            }
-        }
-    }
-
-    public void addPaddock(Paddock paddock){ this.paddocks.add(paddock);}
-
-    public void removePaddock(Paddock paddock){ this.paddocks.remove(paddock);}
-
-
-
-}
