@@ -41,7 +41,7 @@ public abstract class  Paddock {
     }
 
     public String getDinoType(){
-        return this.dinoType.toString();
+        return this.dinoType.getDinoType();
     }
 
     public String getDinoSubType(){
@@ -80,7 +80,7 @@ public abstract class  Paddock {
         ArrayList<Dinosaur> nonMatchingDinosaur = new ArrayList<Dinosaur>();
 
         for (Dinosaur dinosaur : dinosaurs) {
-            if (!dinosaur.getType().toUpperCase().equals(getDinoType())) {
+            if (!dinosaur.getType().equals(getDinoType())) {
                 nonMatchingDinosaur.add(dinosaur);
             }
         }
@@ -93,10 +93,13 @@ public abstract class  Paddock {
 
     public void addNonMatchingDinosaur(ArrayList<Dinosaur> nonMatchingDinosaur){
         for (Dinosaur dinosaur : nonMatchingDinosaur){
-            if (dinosaur.getType().toUpperCase().equals(getDinoType()))
+            if (dinosaur.getType().equals(getDinoType()))
             addDinosaur(dinosaur);
         }
     }
+
+    /////////////////////////////////////////////////////////////////////////////////////
+
 
     //////////////////////// NO DINOSAURS OF SAME CARNIVORE TYPE ////////////////////////
 
@@ -114,10 +117,7 @@ public abstract class  Paddock {
     /////////////////////////////////////////////////////////////////////////////////////
 
 
-
-
-    
-    //////////////////////// RAMPAGE ////////////////////////
+    /////////////////////////////////////// RAMPAGE /////////////////////////////////////
 
     public boolean rampage() {  return this.dinosaurs.size() > this.capacity; }
 
@@ -128,6 +128,11 @@ public abstract class  Paddock {
     }
 
 }
+    /////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
 //    public void rampage(Dinosaur dinosaur) {
 //        for (Dinosaur dinosaur1 : dinosaurs) {
 //            if (rampage1() || dinosaur1.hungryDinosaur()){

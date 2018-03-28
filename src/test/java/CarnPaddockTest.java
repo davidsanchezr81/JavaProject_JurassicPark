@@ -42,7 +42,7 @@ public class CarnPaddockTest {
 
     @Test
     public void canGetDinoType(){
-        assertEquals("CARNIVORE", carnPaddock.getDinoType());
+        assertEquals("Carnivore", carnPaddock.getDinoType());
 
     }
 

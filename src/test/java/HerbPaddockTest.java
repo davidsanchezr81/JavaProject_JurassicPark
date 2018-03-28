@@ -41,7 +41,7 @@ public class HerbPaddockTest {
 
     @Test
     public void canGetDinoType(){
-        assertEquals("HERBIVORE", herbPaddock.getDinoType());
+        assertEquals("Herbivore", herbPaddock.getDinoType());
     }
 
     @Test
