@@ -34,8 +34,12 @@ public class Park {
         return paddocks;
     }
 
-    public int countVisitors() {
-        return this.visitors.size();
+       public void addPaddock(Paddock paddock) {
+        this.paddocks.add(paddock);
+    }
+
+    public void removePaddock(Paddock paddock) {
+        this.paddocks.remove(paddock);
     }
 
     public int countPaddocks() {
@@ -59,27 +63,11 @@ public class Park {
         }
     }
 
-    public void addPaddock(Paddock paddock) {
-        this.paddocks.add(paddock);
+    public int countVisitors() {
+        return this.visitors.size();
     }
 
-    public void removePaddock(Paddock paddock) {
-        this.paddocks.remove(paddock);
-    }
+
 
 }
 
-///////////////////// PRUEBA //////////////////////!paddock.rampage() ||
-
-
-
-
-//    public Paddock getPaddockNeedTransfer(){
-//        for(Paddock paddock : paddocks) {
-//            for (Dinosaur dinosaur : paddock.dinosaurs) {
-//                if (paddock.getPaddockName().equals(dinosaur.getName())) ;
-//                return paddock;
-//            }
-//        }
-//        return null;
-//    }

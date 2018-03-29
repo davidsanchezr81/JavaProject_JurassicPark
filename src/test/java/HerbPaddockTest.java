@@ -20,7 +20,7 @@ public class HerbPaddockTest {
 
     @Before
     public void before(){
-        herbPaddock = new HerbPaddock("The red praire", 5, DinosaurType.HERBIVORE);
+        herbPaddock = new HerbPaddock("The red meadows", 5, DinosaurType.HERBIVORE);
         herbPaddock1 = new HerbPaddock("Herbivore", 5, DinosaurType.HERBIVORE);
         carnPaddock = new CarnPaddock("Herbivore", 5, DinosaurType.CARNIVORE);
         herbivore = new Herbivore("Antony", DinosaurType.HERBIVORE, 10);
@@ -30,7 +30,7 @@ public class HerbPaddockTest {
 
     @Test
     public void canGetPaddockName(){
-        assertEquals("The red praire", herbPaddock.getPaddockName());
+        assertEquals("The red meadows", herbPaddock.getPaddockName());
     }
 
     @Test
@@ -116,7 +116,7 @@ public class HerbPaddockTest {
         herbPaddock.addDinosaur(herbivore);
         herbPaddock.addDinosaur(herbivore);
         assertEquals(5, herbPaddock.getDinosaursCount());
-        assertEquals("All good, no danger so far", herbPaddock.rampageNotification());
+        assertEquals("All good, no danger so far, keep spending money", herbPaddock.rampageNotification());
     }
 
     @Test

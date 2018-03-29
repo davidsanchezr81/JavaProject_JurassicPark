@@ -36,16 +36,8 @@ public abstract class  Paddock {
         return this.capacity;
     }
 
-    public void setPaddockCapacity(int capacity) {
-        this.capacity = capacity;
-    }
-
     public String getDinoType(){
         return this.dinoType.getDinoType();
-    }
-
-    public String getDinoSubType(){
-        return this.dinoType.toString();
     }
 
     public void addDinosaur(Dinosaur dinosaur) {
@@ -101,22 +93,6 @@ public abstract class  Paddock {
     /////////////////////////////////////////////////////////////////////////////////////
 
 
-    //////////////////////// NO DINOSAURS OF SAME CARNIVORE TYPE ////////////////////////
-
-
-
-
-
-
-
-
-
-
-
-
-    /////////////////////////////////////////////////////////////////////////////////////
-
-
     /////////////////////////////////////// RAMPAGE /////////////////////////////////////
 
     public boolean rampage() {  return this.dinosaurs.size() > this.capacity; }
@@ -124,28 +100,22 @@ public abstract class  Paddock {
     public String rampageNotification(){
         if(rampage()){
             return "Rampage Situation! Run for your Life";}
-        return "All good, no danger so far";
+        return "All good, no danger so far, keep spending money";
     }
 
 }
     /////////////////////////////////////////////////////////////////////////////////////
 
+    //////////////////////// NO DINOSAURS OF SAME CARNIVORE TYPE ////////////////////////
 
 
-
-//    public void rampage(Dinosaur dinosaur) {
-//        for (Dinosaur dinosaur1 : dinosaurs) {
-//            if (rampage1() || dinosaur1.hungryDinosaur()){
-//            return; }
-//
-//        }
-//    }
+    /////////////////////////////////////////////////////////////////////////////////////
 
 
 
 
 
-    // RAMPAGE VACIA BARRIGA DE DINOSAURIO
+
 
 
 

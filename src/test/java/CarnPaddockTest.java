@@ -22,8 +22,8 @@ public class CarnPaddockTest {
 
     @Before
     public void before(){
-        carnPaddock = new CarnPaddock("The Meat Raid", 5,DinosaurType.CARNIVORE);
-        carnPaddock1 = new CarnPaddock("The Meat Rush", 5,DinosaurType.CARNIVORE);
+        carnPaddock = new CarnPaddock("The Meat Train", 5,DinosaurType.CARNIVORE);
+        carnPaddock1 = new CarnPaddock("Poor little prey", 5,DinosaurType.CARNIVORE);
         herbPaddock = new HerbPaddock("Herbivore", 5, DinosaurType.HERBIVORE);
         carnivore = new Carnivore("Antony", DinosaurType.CARNIVORE, 10, CarnSubType.SMALL);
         herbivore = new Herbivore("Raul", DinosaurType.HERBIVORE, 10);
@@ -31,7 +31,7 @@ public class CarnPaddockTest {
 
     @Test
     public void canGetPaddockName(){
-        assertEquals("The Meat Raid", carnPaddock.getPaddockName());
+        assertEquals("The Meat Train", carnPaddock.getPaddockName());
     }
 
     @Test
@@ -47,13 +47,18 @@ public class CarnPaddockTest {
     }
 
     @Test
+    public void canGetPaddockCapacity(){
+        assertEquals(5,  carnPaddock1.getPaddockCapacity());
+    }
+
+    @Test
     public void canAddDinosaur(){
         carnPaddock.addDinosaur(carnivore);
         carnPaddock.addDinosaur(carnivore);
         carnPaddock.addDinosaur(carnivore);
         carnPaddock.addDinosaur(carnivore);
         assertEquals(4, carnPaddock.getDinosaursCount());
-        assertEquals("All good, no danger so far", carnPaddock.rampageNotification());
+        assertEquals("All good, no danger so far, keep spending money", carnPaddock.rampageNotification());
     }
 
     @Test
@@ -124,7 +129,7 @@ public class CarnPaddockTest {
         carnPaddock.addDinosaur(herbivore);
         carnPaddock.addDinosaur(herbivore);
         assertEquals(5, carnPaddock.getDinosaursCount());
-        assertEquals("All good, no danger so far", herbPaddock.rampageNotification());
+        assertEquals("All good, no danger so far, keep spending money", herbPaddock.rampageNotification());
     }
 
     @Test
